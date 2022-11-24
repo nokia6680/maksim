@@ -1,0 +1,258 @@
+.rates {
+    position: relative;
+    @include flex-setting(column, flex-start, flex-start);
+    width: 100%;
+    padding-top: toRem(32);
+    margin-bottom: toRem(48);
+    background-color: $white;
+
+    &__title {
+        align-self: center;
+        display: inline-flex;
+        width: calc(100% - 12.5%);
+        text-align: left;
+    }
+
+    &__nav {
+        position: relative;
+        @include flex-setting(row, flex-start, center);
+        gap: toRem(14);
+        width: 100%;
+        padding-left: 6.25%;
+        padding-right: 6.25%;
+        margin-bottom: toRem(40);
+        scroll-padding-left: 6.25%;
+        scroll-padding-right: 6.25%;
+        overflow-y: hidden;
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+
+        &::after {
+            position: absolute;
+            bottom: 0;
+            left: 6.25%;
+            content: '';
+            width: 100%;
+            height: toRem(1);
+            background-color: $black;
+        }
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        &-item {
+            position: relative;
+            @include flex-setting(column, center, center);
+            width: auto;
+            //margin-right: toRem(14);
+            padding-bottom: toRem(10);
+            scroll-snap-align: center;
+            @include font-setting($primary-font, toRem(12), toRem(14), 700, $black);
+            text-transform: uppercase;
+            white-space: nowrap;
+
+            &:last-of-type {
+                margin-right: 0;
+            }
+
+            &::after {
+                position: absolute;
+                content: '';
+
+                bottom: 0;
+                left: 0;
+                z-index: 10;
+                width: 100%;
+                height: toRem(4);
+                background-color: $green;
+                transform: scaleX(0);
+                transform-origin: right;
+                transition: 0.2s $cubic;
+            }
+
+            &.is-active {
+                &::after {
+                    transform: scaleX(1);
+                    transform-origin: right;
+                    transition: 0.2s $cubic;
+                }
+            }
+        }
+    }
+
+    &__content {
+        @include flex-setting(column, flex-start, flex-start);
+        width: 100%;
+        padding: 0 6.25%;
+        margin-bottom: toRem(40);
+    }
+
+    &__content-item {
+        @include flex-setting(column, flex-start, flex-start);
+        gap: toRem(24);
+        width: 100%;
+        display: none;
+
+        &.is-active {
+            display: flex;
+        }
+    }
+
+    &__content-line {
+        position: relative;
+        @include flex-setting(row, flex-start, center);
+        width: 100%;
+        padding-bottom: toRem(6);
+        border-bottom: toRem(1) solid $darkwhite;
+
+        &.opened {
+            .rates__content-popup {
+                display: flex;
+                z-index: auto;
+                // box-shadow: 10px 10px 0 0 $green;
+
+                &::before {
+                    position: absolute;
+                    content: '';
+
+                    width: 100%;
+                    height: 100%;
+                    background-color: $green;
+                    top: toRem(10);
+                    right: toRem(-10);
+                    z-index: 1;
+                }
+            }
+        }
+    }
+
+    &__content-name {
+        @include font-setting($primary-font, toRem(14), toRem(17), 500, $black);
+        text-align: left;
+        letter-spacing: -0.01em;
+        margin-right: toRem(6);
+    }
+
+    &__content-btn {
+        @include flex-setting(column, center, center);
+        width: toRem(15);
+        min-width: toRem(15);
+        height: toRem(15);
+        padding: 0;
+        background-color: $medgray;
+        border-radius: 100%;
+        border: none;
+
+        &.is-active {
+            background-color: $green;
+            transition: 0.2s $cubic;
+            
+            & ~ .rates__content-popup {
+                display: flex;
+                z-index: auto;
+                // box-shadow: 10px 10px 0 0 $green;
+
+                &::before {
+                    position: absolute;
+                    content: '';
+
+                    width: 100%;
+                    height: 100%;
+                    background-color: $green;
+                    top: toRem(10);
+                    right: toRem(-10);
+                    z-index: 1;
+                }
+            }
+        }
+    }
+
+    &__content-image {
+        width: toRem(5);
+        height: toRem(8);
+        fill: $white;
+    }
+
+    &__content-popup {
+        position: absolute;
+        @include flex-setting(column, center, center);
+        display: none;
+        width: auto;
+        border-radius: toRem(10);
+
+        &-closer {
+            position: absolute;
+            top: toRem(0);
+            right: toRem(8);
+            width: toRem(8);
+            height: toRem(8);
+            padding: 0;
+            background-color: transparent;
+            border: none;
+            z-index: 3;
+        }
+
+        &-image {
+            width: 100%;
+            height: 100%;
+            fill: $green;
+        }
+    }
+
+    &__content-about {
+        display: inline-flex;
+        padding: toRem(20) toRem(20);
+        background-color: $black;
+        border: toRem(2) solid $green;
+        border-radius: toRem(10);
+        @include font-setting($primary-font, toRem(10), toRem(12), 500, $white);
+        text-align: left;
+        z-index: 2;
+    }
+
+    &__content-nr {
+        margin-left: auto;
+        margin-right: toRem(6);
+        @include font-setting($primary-font, toRem(17), toRem(20), 500, $black);
+        text-align: center;
+        letter-spacing: -0.017em;
+    }
+
+    &__content-text {
+        @include font-setting($primary-font, toRem(12), toRem(14), 500, $black);
+        text-align: center;
+        letter-spacing: -0.01em;
+    }
+
+    &__bottom {
+        @include flex-setting(column, flex-start, center);
+        width: 100%;
+        padding: 0 6.25%;
+
+        &-name {
+            display: none;
+        }
+
+        &-link {
+            @include flex-setting(column, center, center);
+            width: 100%;
+            padding: toRem(14) 0;
+            @include font-setting($primary-font, toRem(15), toRem(18), 500, $black);
+            text-align: center;
+            text-transform: uppercase;
+            text-decoration: none;
+            border: toRem(1) solid $black;
+            border-radius: toRem(24);
+            transition: 0.2s $cubic;
+
+            &:active {
+                border-color: $green;
+                background-color: $green;
+                transition: 0.2s $cubic;
+            }
+        }
+    }
+}

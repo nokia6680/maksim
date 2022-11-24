@@ -1,0 +1,31 @@
+-var headRadio = [{name: 'Лендинг', val: 'type-1'}, {name: 'Визитка', val: 'type-2'}, {name: 'Услуги(B2B)', val: 'type-3'}, {name: 'Интернет-магазин', val: 'type-4'}, {name: 'Другое', val: 'type-5'}]
+
+.popup-order
+    .popup-order__wrapper
+        button(type="button").popup-order__closer
+            svg.popup-order__closer-image
+                use(xlink:href="static/images/sprite/symbol/sprite.svg#green-cross")
+        form(method="" action="").popup-order__form.order-form
+            ul.order-form__head
+                for i in headRadio
+                    li.order-form__option
+                        input(type="radio" name="order-type" value="" +i.val id="" +i.val).order-form__radio
+                        label(for="" +i.val).order-form__label=i.name
+            ul.order-form__list
+                li.order-form__item
+                    label(for="order-textarea").order-form__label
+                    textarea(name="order-textarea" id="order-textarea" placeholder="Здравствуйте! Хочу заказать сайт услуг для B2B.").order-form__textarea
+                li.order-form__item
+                    label(for="order-name").order-form__label
+                    input(type="text" name="order-name" id="order-name" placeholder="Имя").order-form__input
+                li.order-form__item
+                    label(for="order-tel").order-form__label
+                    input(type="tel" name="order-tel" id="order-tel" placeholder="Телефон").order-form__input
+                li.order-form__item
+                    label(for="order-mail").order-form__label
+                    input(type="email" name="order-mail" id="order-mail" placeholder="Почта").order-form__input
+            .order-form__docs
+                input(type="file" name="order-file" id="order-file").order-form__file
+                label(for="order-file").order-form__upload ↑ Прикрепить файл
+                span.order-form__note Можете добавить бриф, архив с референсами, ТЗ и любые документы (до 50 Мб) 
+            button(type="submit").order-form__submit Отправить

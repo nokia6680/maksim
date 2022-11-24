@@ -1,0 +1,18 @@
+section.callback#form
+    h2.callback__title.hidden Форма обратной связи
+    form(method="" action="" name="callback-form").callback__form
+        ul.callback__list
+            li.callback__item
+                label(for="name").callback__label
+                input(type="text" id="name" name="name" placeholder="имя" required).callback__input
+                span.callback__error
+            li.callback__item
+                label(for="name").callback__label
+                input(type="tel" id="tel" name="tel" placeholder="телефон" required).callback__input
+                span.callback__error
+            li.callback__item
+                label(for="mail").callback__label
+                input(type="email" id="mail" name="mail" placeholder="почта" required).callback__input
+                span.callback__error
+        p.callback__subtitle заполните форму и получите бесплатный аудит
+        button(type="submit").callback__submit Связаться

@@ -1,0 +1,13 @@
+- var portfolioItem = [{name: 'Simple New Year ↗', link: '', image: '#sny-logo', description: 'Разработка каталога'}, {name: 'Wine Reflections ↗', link: '', image: 'wine-logo', description: 'Сайт-визитка'}, {name: 'SVS Company ↗ ', link: '', image: 'svs-logo', description: 'Онлайн-магазин'}, {name: 'Simple ↗', link: '', image: 'simple-logo', description: 'Сайт-визитка'}, {name: 'SellPlus ↗', link: '', image: 'sellplus-logo', description: 'Сайт-визитка'}, {name: 'Mad Site ↗', link: '', image: 'mad-logo', description: 'Посадочная страница'}, {name: 'Gift Catalogue ↗', link: '', image: 'gift-logo', description: 'Посадочная страница'}]
+
+section.portfolio#portfolio
+    .portfolio__head
+        h2.portfolio__title.section-title Портфолио
+        span.portfolio__note Дизайн, верстка, программинг, реклама на поддержке 5 лет
+    ul.portfolio__list
+        for i in portfolioItem
+            li.portfolio__item
+                a(href="" +i.link target="_blank").portfolio__name=i.name
+                p.portfolio__description=i.description
+                svg.portfolio__logo
+                    use(xlink:href="static/images/sprite/symbol/sprite.svg#" + i.image)

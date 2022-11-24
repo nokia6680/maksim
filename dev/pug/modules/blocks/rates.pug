@@ -1,0 +1,54 @@
+- var ratesF = [{title: 'SEO-специалист', about: 'Адаптация верстки под CMS, подготовка рабочего пространства с сайтом, работа с калькуляторами и прочее', descriprion: '2 100'}, {title: 'Копирайтер', about: 'Адаптация верстки под CMS, подготовка рабочего пространства с сайтом, работа с калькуляторами и прочее', descriprion: '1 100'}, {title: 'Контент-менеджер',about: 'Адаптация верстки под CMS, подготовка рабочего пространства с сайтом, работа с калькуляторами и прочее', descriprion: '1 000'}, {title: 'Семантик',about: 'Адаптация верстки под CMS, подготовка рабочего пространства с сайтом, работа с калькуляторами и прочее', descriprion: '1 200'}, {title: 'Программист',about: 'Адаптация верстки под CMS, подготовка рабочего пространства с сайтом, работа с калькуляторами и прочее', descriprion: '2 500'}, {title: 'Верстальщик',about: 'Адаптация верстки под CMS, подготовка рабочего пространства с сайтом, работа с калькуляторами и прочее', descriprion: '2 300'}, {title: 'Дизайнер',about: 'Адаптация верстки под CMS, подготовка рабочего пространства с сайтом, работа с калькуляторами и прочее', descriprion: '2 500'}]
+
+section.rates
+    h2.rates__title.section-title Рейт-карта
+    ul.rates__nav
+        li(data-tab-name="rate-1").rates__nav-item.is-active SEO продвижение
+        li(data-tab-name="rate-2").rates__nav-item Web-Production
+        li(data-tab-name="rate-3").rates__nav-item Реклама
+    .rates__content
+        ul.rates__content-item.rate-1.is-active
+            for i in ratesF
+                li.rates__content-line
+                    span.rates__content-name=i.title
+                    button(type="button").rates__content-btn.js-tooltip-opener
+                        svg.rates__content-image
+                            use(xlink:href="static/images/sprite/symbol/sprite.svg#question-btn")
+                    .rates__content-popup
+                        button(type="button").rates__content-popup-closer.js-tooltip-closer
+                            svg.rates__content-popup-image
+                                use(xlink:href="static/images/sprite/symbol/sprite.svg#green-cross")
+                        p.rates__content-about=i.about
+                    b.rates__content-nr=i.descriprion
+                    span.rates__content-text (₽/ч)
+        ul.rates__content-item.rate-2
+            for i in ratesF
+                li.rates__content-line
+                    span.rates__content-name=i.title
+                    button(type="button").rates__content-btn.js-tooltip-opener
+                        svg.rates__content-image
+                            use(xlink:href="static/images/sprite/symbol/sprite.svg#question-btn")
+                    .rates__content-popup
+                        button(type="button").rates__content-popup-closer.js-tooltip-closer
+                            svg.rates__content-popup-image
+                                use(xlink:href="static/images/sprite/symbol/sprite.svg#green-cross")
+                        p.rates__content-about=i.about
+                    b.rates__content-nr=i.descriprion
+                    span.rates__content-text (₽/ч)
+        ul.rates__content-item.rate-3
+            for i in ratesF
+                li.rates__content-line
+                    span.rates__content-name=i.title
+                    button(type="button").rates__content-btn.js-tooltip-opener
+                        svg.rates__content-image
+                            use(xlink:href="static/images/sprite/symbol/sprite.svg#question-btn")
+                    .rates__content-popup
+                        button(type="button").rates__content-popup-closer.js-tooltip-closer
+                            svg.rates__content-popup-image
+                                use(xlink:href="static/images/sprite/symbol/sprite.svg#green-cross")
+                        p.rates__content-about=i.about
+                    b.rates__content-nr=i.descriprion
+                    span.rates__content-text (₽/ч)
+    .rates__bottom
+        span.rates__bottom-name Ratemap.pdf(15,4 Мб)
+        a(href="" target="_self").rates__bottom-link Скачать PDF ↓

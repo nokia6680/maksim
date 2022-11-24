@@ -1,0 +1,12 @@
+-var faqItem = [{name: 'Как происходит процесс разработки?', description: 'После релиза мы обслуживаем ваш сайт в течение 3-ех месяцев бесплатно. Вносим незначительные правки, обеспечиваем бесперебойную работоспособность.'}, {name: 'Каким образом формируется цена и сроки на разработку?', description: 'После релиза мы обслуживаем ваш сайт в течение 3-ех месяцев бесплатно. Вносим незначительные правки, обеспечиваем бесперебойную работоспособность.'}]
+
+section.faq
+    h2.faq__title.section-title Популярные вопросы
+    
+    .faq__list
+        for i in faqItem
+            details.faq__item
+                summary.faq__name
+                    span.faq__name-text=i.name
+                    button(type="button").faq__name-opener +
+                p.faq__answer=i.description

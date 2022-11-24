@@ -1,0 +1,42 @@
+- var navLinks = [{name: 'Портфолио', link: '#portfolio'}, {name: 'Услуги', link: '#services'}, {name: 'Калькулятор', link: '#calculator'}, {name: 'Рейт-карта', link: '#rates'}, {name: 'Контакты', link: '#contacts'}]
+- var innerLinks = [{name: 'Бриф на дизайн ↓', link: '#'}, {name: 'Требования к макетам ↓', link: '#'}, {name: 'Презентация агентства ↓', link: '#'}, {name: 'Техническое задание ↓', link: '#'}, {name: 'Договор ↓', link: '#'}, {name: 'Приложение к договору ↓', link: '#'}, {name: 'Реквизиты исполнителя ↓', link: '#'}]
+
+header.header
+    <!--Header logo-->
+    .header__logo
+        a(href="index.html" target="_self").header__logo-link
+            <!--use sprite logo-->
+            svg.header__logo-image
+                use(xlink:href="static/images/sprite/symbol/sprite.svg#swipe-logo")
+    <!--Header nav-->
+    nav.header__nav.nav
+        ul.nav__list
+            for i in navLinks
+                li.nav__item
+                    a(href="" +i.link target="_self").nav__link=i.name
+            li.nav__item.nav__item--links
+                span.nav__link
+                    span.nav__link-text Ссылки 
+                    span.nav__link-arr →
+                ul.nav__inner
+                    for i in innerLinks
+                        li.nav__inner-item
+                            a(href="" +i.link target="_blank").nav__inner-link=i.name
+        <!--contacts for mobile-->
+        .nav__contacts.nav__contacts--mobile
+            a(href="tel:+79108007060" target="_self").nav__contacts-link 8 910 800-70-60
+            a(href="#" target="_blank").nav__contacts-link whatsapp
+            a(href="#" target="_blank").nav__contacts-link telegram
+        <!--contacts for desktop-->
+        .nav__contacts.nav__contacts--desktop
+            a(href="mailto:hello@swipe.ru" target="_blank").nav__contacts-link hello@swipe.ru
+            a(href="tel:+79266764373" target="_blank").nav__contacts-link +7 926 676-43-73
+            button(type="button").nav__contacts-btn.js-callback Заказать звонок
+    <!--Header toggler-->
+    button(type="button").header__toggle.js-toggle
+        <!--use sprite opener-->
+        svg.header__toggle-opener
+            use(xlink:href="static/images/sprite/symbol/sprite.svg#header-toggle")
+        <!--use sprite closer-->
+        svg.header__toggle-closer
+            use(xlink:href="static/images/sprite/symbol/sprite.svg#header-closer")

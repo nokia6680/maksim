@@ -1,0 +1,40 @@
+include ../helpers/mixins
+block variables
+
+doctype html
+html(lang="ru-RU")
+    head
+        //test ver only
+        meta(name="robots" content="noindex")
+        //end of test ver only
+        meta(charset="utf-8")
+        title #{title}
+        <!--[if IE]>
+        meta(http-equiv='X-UA-Compatible', content="IE = edge")
+        <![endif]-->
+        meta(name="viewport" content="width=device-width,initial-scale=1")
+        meta(name="keywords" content="")
+        link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous")
+        link(rel="stylesheet" type='text/css' href="static/css/styles.css")
+    body.body
+        include ../modules/header/header
+
+        main.main
+            include ../modules/blocks/intro
+            include ../modules/blocks/portfolio
+            include ../modules/blocks/services
+            include ../modules/blocks/price
+            include ../modules/blocks/calc
+            include ../modules/blocks/faq
+            include ../modules/blocks/rates
+            include ../modules/blocks/form
+        include ../modules/footer/footer
+        include ../modules/blocks/popup-order
+        script(src="static/js/libs.js")
+        script(src="static/js/main.js")
+        script(src="static/js/services.js")
+        script(src="static/js/tabs.js")
+        script(src="static/js/tooltips.js")
+        script(src="static/js/textarea.js")
+        script(src="static/js/file.js")
+        block script

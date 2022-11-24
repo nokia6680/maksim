@@ -1,0 +1,65 @@
+.callback {
+    @include flex-setting(column, flex-start, flex-start);
+    padding: toRem(70) 6.25% toRem(32) 6.25%;
+    background: $gradient;
+
+    &__form {
+        @include flex-setting(column, flex-start, center);
+        width: 100%;
+    }
+
+    &__list {
+        @include flex-setting(column, flex-start, flex-start);
+        gap: toRem(30);
+        width: 100%;
+        margin-bottom: toRem(50);
+    }
+
+    &__item {
+        @include flex-setting(column, center, center);
+        @include gapFallbackV(30px);
+        width: 100%;
+        border-bottom: toRem(2) solid $black;
+    }
+
+    &__input {
+        width: 100%;
+        @include font-setting($primary-font, toRem(30), toRem(36), 400, $black);
+        letter-spacing: -0.017em;
+        text-overflow: ellipsis;
+        background-color: transparent;
+        border: none;
+
+        &::-webkit-input-placeholder {
+            color: $black;
+        }
+
+        &::-moz-placeholder {
+            color: $black;
+        }
+    }
+
+    &__subtitle {
+        display: none;
+    }
+
+    &__submit {
+        @include flex-setting(column, center, center);
+        width: 100%;
+        padding: toRem(14) 0;
+        @include font-setting($primary-font, toRem(15), toRem(18), 500, $white);
+        text-align: center;
+        text-transform: uppercase;
+        text-decoration: none;
+        background-color: $black;
+        border: none;
+        border-radius: toRem(24);
+        transition: 0.2s $cubic;
+
+        &:active {
+            background-color: $white;
+            color: $black;
+            transition: 0.2s $cubic;
+        }
+    }
+}

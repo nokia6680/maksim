@@ -1,0 +1,141 @@
+.order-form {
+    position: relative;
+
+    @include flex-setting(column, flex-start, flex-start);
+
+    width: 100%;
+
+    &__head {
+        @include flex-setting(row, flex-start, center);
+        flex-wrap: wrap;
+        gap: toRem(5) toRem(5);
+        width: 85.72%;
+        margin-bottom: toRem(20);
+    }
+
+    &__option {
+        @include flex-setting(column, center, center);
+        width: auto;
+    }
+
+    &__radio {
+        display: none;
+    }
+
+    &__radio + label {
+        padding: toRem(5) toRem(5);
+        border-bottom: toRem(2) solid transparent;
+        transition: 0.2s $cubic;
+    }
+
+    &__radio:checked + label {
+        border-color: $green;
+        transition: 0.2s $cubic;
+    }
+
+    &__label {
+        @include font-setting($primary-font, toRem(14), toRem(17), 500, $black);
+        letter-spacing: -0.017em;
+    }
+
+    &__list {
+        @include flex-setting(column, flex-start, center);
+        width: 100%;
+        gap: toRem(5);
+        margin-bottom: toRem(28);
+    }
+
+    &__item {
+        @include flex-setting(column, center, center);
+        @include gapFallbackV(5px);
+        width: 100%;
+    }
+
+    &__textarea {
+        width: 100%;
+        min-height: toRem(78);
+        padding: toRem(22) toRem(26);
+        @include font-setting($primary-font, toRem(16), toRem(19), 400, $black);
+        text-overflow: ellipsis;
+        background-color: $lightgray;
+        border: none;
+        border-radius: toRem(1);
+        outline: none;
+        cursor: text;
+
+        &::-webkit-input-placeholder {
+            color: $black;
+        }
+
+        &::-moz-placeholder {
+            color: $black;
+        }
+    }
+
+    &__input {
+        width: 100%;
+        padding: toRem(22) toRem(26);
+        @include font-setting($primary-font, toRem(16), toRem(19), 400, $black);
+        text-overflow: ellipsis;
+        background-color: $lightgray;
+        border: none;
+        border-radius: toRem(1);
+        outline: none;
+        cursor: text;
+
+        &::-webkit-input-placeholder {
+            color: $black;
+        }
+
+        &::-moz-placeholder {
+            color: $black;
+        }
+    }
+
+    &__docs {
+        @include flex-setting(column, flex-start, flex-start);
+        width: 100%;
+        margin-bottom: toRem(20);
+    }
+
+    &__file {
+        display: none;
+    }
+
+    &__upload {
+        position: relative;
+        padding-bottom: toRem(4);
+        margin-bottom: toRem(10);
+        @include font-setting($primary-font, toRem(16), toRem(19), 400, $black);
+        letter-spacing: -0.017em;
+        border-bottom: toRem(1) dashed $gray;
+    }
+
+    &__note {
+        width: 100%;
+        max-width: toRem(224);
+        @include font-setting($primary-font, toRem(9), toRem(11), 400, $black);
+        text-align: left;
+        letter-spacing: -0.017em;
+    }
+
+    &__submit {
+        @include flex-setting(column, center, center);
+        width: 100%;
+        padding: toRem(15) 0;
+        @include font-setting($primary-font, toRem(16), toRem(19), 500, $white);
+        text-transform: uppercase;
+        letter-spacing: 0.01em;
+        background-color: $black;
+        border: none;
+        border-radius: toRem(24);
+        cursor: pointer;
+        transition: 0.2s $cubic;
+
+        &:active {
+            color: $black;
+            background-color: $green;
+            transition: 0.2s $cubic;
+        }
+    }
+}

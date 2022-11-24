@@ -1,0 +1,169 @@
+.nav {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: -100vw;
+
+    @include flex-setting(column, flex-start, flex-end);
+    width: 100vw;
+    height: calc(var(--vh, 1vh) * 100);
+    padding: toRem(66.5) toRem(20) toRem(32) toRem(20);
+
+    background-color: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(27px);
+
+    transition: 0.2s $cubic;
+
+    &__list {
+        @include flex-setting(column, flex-start, flex-end);
+        width: 100%;
+        gap: toRem(24);
+        padding-top: toRem(44);
+
+        &.links-active {
+            .nav__item:not(:last-child) {
+                opacity: 0;
+                pointer-events: none;
+                transition: 0.2s $cubic;
+            }
+
+            .nav__item--links {
+                order: -1;
+                transition: 0.2s $cubic;
+
+                .nav__link {
+                    @include flex-setting(row, flex-end, flex-end);
+                    margin-bottom: 17.85vh;
+
+                    &-arr {
+                        transform: rotate(180deg);
+                        line-height: toRem(20);
+                    }
+                }
+            }
+
+            .nav__inner {
+                display: flex;
+            }
+
+            & + .nav__contacts {
+                display: none;
+            }
+        }
+    }
+
+    &__item {
+        display: inline-flex;
+        width: auto;
+        @include gapFallbackV(24px);
+
+        opacity: 1;
+        pointer-events: all;
+        transition: 0.2s $cubic;
+
+        &--links {
+            @include flex-setting(column, flex-start, flex-end);
+        }
+    }
+
+    &__link {
+        display: inline-flex;
+        width: auto;
+        padding-bottom: toRem(3);
+        @include font-setting($primary-font, toRem(20), toRem(24), 500, $white);
+        letter-spacing: -0.01em;
+        text-decoration: none;
+        text-transform: lowercase;
+        border-bottom: toRem(1) solid $thingray;
+        transition: 0.2s $cubic;
+
+        &-arr {
+            margin-left: toRem(8);
+        }
+
+        &:active {
+            border-color: $green;
+            transition: 0.2s $cubic;
+        }
+    }
+
+    &__inner {
+        @include flex-setting(column, flex-start, flex-end);
+        display: none;
+        gap: toRem(24);
+        width: 100%;
+        margin-bottom: 0;
+        margin-top: auto;
+
+        &-item {
+            display: inline-flex;
+            @include gapFallbackV(24px);
+            width: auto;
+        }
+
+        &-link {
+            display: inline-flex;
+            width: auto;
+            padding-bottom: toRem(3);
+            @include font-setting($primary-font, toRem(16), toRem(19), 500, $white);
+            letter-spacing: -0.01em;
+            text-decoration: none;
+            text-transform: lowercase;
+            border-bottom: toRem(1) solid $thingray;
+            transition: 0.2s $cubic;
+
+            &:active {
+                border-color: $green;
+                transition: 0.2s $cubic;
+            }
+        }
+    }
+
+    &__contacts {
+        @include flex-setting(row, flex-end, center);
+        gap: toRem(14) toRem(20);
+        flex-wrap: wrap;
+        width: auto;
+        max-width: 71.43%;
+        margin-bottom: 0;
+        margin-top: auto;
+
+        &-link {
+            display: inline-flex;
+            width: auto;
+            @include font-setting($primary-font, toRem(20), toRem(24), 500, $white);
+            letter-spacing: -0.01em;
+            text-decoration: none;
+            text-transform: lowercase;
+
+            border-bottom: toRem(1) solid $thingray;
+            transition: 0.2s $cubic;
+            justify-self: end;
+
+            &:active {
+                border-color: $green;
+                transition: 0.2s $cubic;
+            }
+
+            &:first-child {
+                grid-column: 1 / 3;
+                grid-row: 1 / 2;
+                justify-self: end;
+            }
+
+            &:nth-child(2) {
+                grid-column: 1 / 2;
+                grid-row: 2 / 3;
+            }
+
+            &:last-child {
+                grid-column: 2 / 3;
+                grid-row: 2 / 3;
+            }
+        }
+
+        &--desktop {
+            display: none;
+        }
+    }
+}

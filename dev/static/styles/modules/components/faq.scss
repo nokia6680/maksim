@@ -1,0 +1,60 @@
+.faq {
+    @include flex-setting(column, flex-start, flex-start);
+    width: 100%;
+    padding: toRem(32) 6.25%;
+    background-color: $lightgray;
+
+    &__list {
+        @include flex-setting(column, flex-start, flex-start);
+        width: 100%;
+        gap: toRem(20);
+    }
+
+    &__item {
+        @include flex-setting(column, flex-start, flex-start);
+        @include gapFallbackV(20px);
+        width: 100%;
+        border-bottom: toRem(1) solid $medgray;
+
+        &[open] {
+            border-bottom: none;
+
+            .faq__name {
+                margin-bottom: toRem(20);
+            }
+
+            .faq__name-opener {
+                transform: rotate(45deg);
+                transition: 0.1s $cubic;
+            }
+        }
+    }
+
+    &__name {
+        @include flex-setting(row, space-between, center);
+        width: 100%;
+        padding-bottom: toRem(6);
+
+        &-text {
+            @include font-setting($primary-font, toRem(16), toRem(19), 500, $black);
+            text-align: left;
+        }
+
+        &-opener {
+            display: inline-flex;
+            width: toRem(14);
+            height: toRem(30);
+            padding: 0;
+            @include font-setting($primary-font, toRem(25), toRem(30), 500, $black);
+            letter-spacing: -0.017em;
+            background-color: transparent;
+            border: none;
+            transition: 0.1s $cubic;
+        }
+    }
+
+    &__answer {
+        @include font-setting($primary-font, toRem(16), toRem(23), 400, $black);
+        text-align: left;
+    }
+}

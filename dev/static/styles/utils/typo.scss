@@ -1,0 +1,10 @@
+.section-title {
+    display: inline-flex;
+    width: 100%;
+    margin-bottom: toRem(30);
+    padding-bottom: toRem(10);
+    @include font-setting($primary-font, toRem(12), toRem(14), 700, $black);
+    text-align: left;
+    text-transform: uppercase;
+    border-bottom: toRem(1) solid $black;
+}

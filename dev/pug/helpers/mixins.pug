@@ -1,0 +1,18 @@
+mixin servicesItem(type, control, name, icon, preview)
+    li(id="" +type aria-expanded="false" onclick="toggleDisclosure(this.id);" aria-controls="" +control).services__item
+        .services__outer
+            span.services__icon
+                svg.services__icon-logo
+                    use(xlink:href="static/images/sprite/symbol/sprite.svg#" + icon)
+            h3.services__name=name
+            p.services__preview=preview
+            
+mixin servicesInner(type, bgInner, icon, description, link1, linkName1, link2, linkName2)
+    li(id="" +type).services__item.fullwidth.is-hidden
+        span.services__bg
+            svg.services__bg-logo
+                use(xlink:href="static/images/sprite/symbol/sprite.svg#" + icon)
+            img(src="static/images/content/" +bgInner width="" height="" alt="" +name).services__bg-img
+        p.services__description=description
+        a(href="" +link1 target="_blank").services__link=linkName1
+        a(href="" +link2 target="_blank").services__link=linkName2

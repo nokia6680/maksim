@@ -1,0 +1,49 @@
+.intro {
+    @include flex-setting(column, flex-start, flex-start);
+    width: 100%;
+    height: calc(100vw * (7 / 4));
+    padding: toRem(100) 6.25% toRem(24) 6.25%;
+
+    background-image: image-set(url("/static/images/content/intro-bg-mb.webp") 1x, url("/static/images/content/intro-bg-mb_2x.webp") 2x, url("/static/images/content/intro-bg-mb_3x.webp") 3x);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: top center;
+
+    &__title {
+        margin-bottom: toRem(30);
+        @include font-setting($primary-font, toRem(32), toRem(35), 600, $black);
+        text-align: left;
+        letter-spacing: -0.02em;
+
+        span:first-child,
+        span:nth-child(3) {
+            border-bottom: toRem(1) solid $gray;
+        }
+    }
+
+    &__description {
+        @include font-setting($primary-font, toRem(20), toRem(24), 500, $black);
+        text-align: left;
+    }
+
+    &__link {
+        @include flex-setting(column, center, center);
+        width: 100%;
+        margin-bottom: 0;
+        margin-top: auto;
+        padding: toRem(15) 0;
+
+        @include font-setting($primary-font, toRem(15), toRem(17), 500, $white);
+        text-transform: uppercase;
+        text-decoration: none;
+        border-radius: toRem(24);
+        background-color: $black;
+        transition: 0.2s $cubic;
+
+        &:active {
+            background-color: $green;
+            color: $black;
+            transition: 0.2s $cubic;
+        }
+    }
+}
