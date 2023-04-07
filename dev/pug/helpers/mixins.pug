@@ -1,18 +1,22 @@
-mixin servicesItem(type, control, name, icon, preview)
-    li(id="" +type aria-expanded="false" onclick="toggleDisclosure(this.id);" aria-controls="" +control).services__item
-        .services__outer
-            span.services__icon
-                svg.services__icon-logo
-                    use(xlink:href="static/images/sprite/symbol/sprite.svg#" + icon)
-            h3.services__name=name
-            p.services__preview=preview
-            
-mixin servicesInner(type, bgInner, icon, description, link1, linkName1, link2, linkName2)
-    li(id="" +type).services__item.fullwidth.is-hidden
-        span.services__bg
-            svg.services__bg-logo
-                use(xlink:href="static/images/sprite/symbol/sprite.svg#" + icon)
-            img(src="static/images/content/" +bgInner width="" height="" alt="" +name).services__bg-img
-        p.services__description=description
-        a(href="" +link1 target="_blank").services__link=linkName1
-        a(href="" +link2 target="_blank").services__link=linkName2
+mixin introItem(description, icon)
+    li(class="intro__item " +icon)
+        p.intro__text=description
+
+mixin breadcrumbsItem(text,href)
+    li.breadcrumbs__item
+        if(href)
+            a.breadcrumbs__link(href=href)=text
+        else
+            span.breadcrumbs__text=text
+mixin overviewItem(name, info, icon)
+    li.overview__item 
+        span(data-icon="" +icon).overview__icon
+        b.overview__info=info
+        p.overview__name=name
+mixin coursesItem(logo, position, name, price, duration, link)
+    li.content__inner-item
+        .content__inner-head 
+            img(src="static/images/content/" +logo +".png" width="" height="" alt="").content__inner-img
+            b.content__inner-position=position
+            span.content__inner-name=name
+        

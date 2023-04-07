@@ -1,0 +1,175 @@
+.pro {
+    @include flex-setting(column, flex-start, flex-start);
+    width: 100%;
+    margin-bottom: toRem(48);
+
+    &__title {
+        @include font-setting($primary-font, toRem(22), toRem(24), 700, $black);
+        margin-bottom: toRem(12);
+        margin-left: 4.375%;
+    }
+
+    &__list {
+        padding: 0 4.375%;
+        scroll-snap-type: x mandatory;
+        width: 100%;
+
+        @include flex-setting(row, flex-start, stretch);
+        margin-bottom: toRem(0);
+        z-index: 0;
+        overflow-x: auto;
+
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    &__item {
+        min-width: toRem(284);
+        width: toRem(284);
+        scroll-snap-align: center;
+        height: auto;
+        @include flex-setting(column, flex-start, flex-start);
+        padding: toRem(24) toRem(24);
+        background-color: $white;
+        border-radius: toRem(10);
+        margin-right: toRem(16);
+
+        &:first-of-type {
+            .pro__icon {
+                width: toRem(26);
+                height: toRem(26);
+                background-image: url('../images/content/pro-1.png');
+            }
+
+            .pro__inner {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        &:nth-of-type(2) {
+            .pro__icon {
+                width: toRem(35);
+                height: toRem(23);
+                background-image: url('../images/content/pro-2.png');
+            }
+        }
+
+        &:nth-of-type(3) {
+            .pro__icon {
+                width: toRem(32);
+                height: toRem(31);
+                background-image: url('../images/content/pro-3.png');
+            }
+        }
+
+        &:last-of-type {
+            margin-right: 0;
+
+            .pro__icon {
+                width: toRem(30);
+                height: toRem(27);
+                background-image: url('../images/content/pro-4.png');
+            }
+        }
+    }
+
+    &__body {
+        @include flex-setting(column, flex-start, center);
+        width: 100%;
+        margin-bottom: toRem(40);
+    }
+
+    &__head {
+        @include flex-setting(row, flex-start, center);
+        margin-bottom: toRem(30);
+    }
+
+    &__icon {
+        display: block;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-right: toRem(12);
+    }
+
+    &__name {
+        width: 100%;
+        @include font-setting($primary-font, toRem(18), 1.2, 500, $black);
+        text-align: left;
+    }
+
+    &__inner {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-row-gap: toRem(11);
+        justify-content: start;
+        align-items: start;
+        width: 100%;
+
+        &-item {
+            @include flex-setting(row, flex-start, center);
+            width: auto;
+        }
+
+        &-name {
+            @include font-setting($primary-font, toRem(16), 1.2, 400, $black);
+            text-align: left;
+        }
+    }
+
+    &__bottom {
+        margin-top: auto;
+        margin-bottom: 0;
+
+        @include flex-setting(column, flex-start, flex-start);
+        width: 100%;
+
+        &-logo {
+            width: toRem(159);
+            height: toRem(37);
+            margin-bottom: toRem(20);
+        }
+
+        &-description {
+            @include font-setting($primary-font, toRem(16), 1.2, 400, $black);
+            text-align: left;
+            margin-bottom: toRem(16);
+        }
+
+        &-link {
+            @include flex-setting(column, center, center);
+            @include font-setting($primary-font, toRem(16), 1.2, 400, $black);
+            text-decoration: none;
+            text-transform: lowercase;
+            width: 100%;
+            padding: toRem(16) 0;
+            border: toRem(1) solid #76c0ff;
+            border-radius: toRem(8);
+            transition: 0.2s $cubic;
+
+            &:active {
+                background-color: #76c0ff;
+                color: $white;
+                transition: 0.2s $cubic;
+            }
+        }
+    }
+}
+
+@include min-screen(768px) {
+    .pro {
+        margin-bottom: toRem(60);
+    
+        &__title {
+            margin-left: 6.25%;
+        }
+    
+        &__list {
+            padding: 0 6.25%;
+        }
+    }
+}

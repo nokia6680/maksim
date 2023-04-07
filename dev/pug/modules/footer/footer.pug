@@ -3,35 +3,15 @@
 - var fooInnerLinks = [{name: 'Бриф на дизайн ↓', link: '#'}, {name: 'Требования к макетам ↓', link: '#'}, {name: 'Презентация агентства ↓', link: '#'}, {name: 'Техническое задание ↓', link: '#'}, {name: 'Договор ↓', link: '#'}, {name: 'Приложение к договору ↓', link: '#'}, {name: 'Реквизиты исполнителя ↓', link: '#'}]
 
 footer.footer
-    //- список клиентов
-    ul.footer__clients
-        for i in fooLogo
-            li.footer__clients-item
-                a(href="" +i.link target="_self").footer__clients-link
-                    svg.footer__clients-image
-                        use(xlink:href="static/images/sprite/symbol/sprite.svg#" +i.imageId)
-                .footer__clients-info
-                    p.footer__clients-name=i.name
-                    span.footer__clients-about=i.about
-    .footer__general
+    .footer__main
         a(href="index.html" target="_self").footer__logo
-            svg.footer__logo-image
-                use(xlink:href="static/images/sprite/symbol/sprite.svg#swipe-logo")
-        .footer__contacts
-            a(href="tel:+79108007060" target="_self").footer__contacts-link 8 910 800-70-60
-            a(href="#" target="_blank").footer__contacts-link whatsapp
-            a(href="#" target="_blank").footer__contacts-link telegram
-        p.footer__description Режим&nbsp;работы пн&nbsp;—&nbsp;пт,&nbsp;11:00&nbsp;—&nbsp;19:00
-        p.footer__description Подъёмная 12с1 119017 Москва
+            img(src="static/images/content/foo-logo.png" width="" height="" alt="").footer__logo-image
+        a(href="mailto:email@email.com" target="_self").footer__link email@email.com
+        span.footer__policy Все права защищены ©
     .footer__nav
-        ul.footer__list
-            for j in fooNavLinks
-                li.footer__list-item
-                    a(href="" +j.link target="_self").footer__list-link=j.name 
-        ul.footer__inner
-            for k in fooInnerLinks
-                li.footer__inner-item
-                    a(href="" +k.link target="_self").footer__inner-link=k.name
+
+    p.footer__about Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
     .footer__legal
-        a(href="#" target="_self").footer__legal-link Политика конфиденциальности сайта
-        span.footer__legal-text © 2016—2022, Swipe. Все права защищены 
+        a(href="#" target="_blank").footer__legal-link Пользовательское соглашение
+        a(href="#" target="_blank").footer__legal-link Согласие на обработку персональных данных

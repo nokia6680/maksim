@@ -10,9 +10,9 @@ var sandwichToggle = function sandwichToggle() {
         var targetId = this.getAttribute('data-target-id'),
             targetClassToggle = this.getAttribute('data-target-class-toggle');
         var body = document.querySelector('.body');
-        var header = document.querySelector('.header');
+        var nav = document.querySelector('.nav');
         this.classList.toggle('is-active');
-        header.classList.toggle('is-active');
+        nav.classList.toggle('is-active');
         body.classList.toggle('no-scroll');
 
         if (targetId && targetClassToggle) {

@@ -1,0 +1,71 @@
+include ../helpers/mixins
+block variables
+
+doctype html
+html(lang="ru-RU")
+    head
+        //test ver only
+        meta(name="robots" content="noindex")
+        //end of test ver only
+        meta(charset="utf-8")
+        title #{title}
+        <!--[if IE]>
+        meta(http-equiv='X-UA-Compatible', content="IE = edge")
+        <![endif]-->
+        meta(name="viewport" content="width=device-width,initial-scale=1")
+        meta(name="keywords" content="")
+        link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous")
+        link(rel="stylesheet" type='text/css' href="static/css/styles.css")
+        link(rel="preconnect" href="https://fonts.googleapis.com")
+        link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+        link(href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Roboto:wght@300;400;500;700;900&family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet")
+    body.body
+        include ../modules/header/header
+
+        main.main
+            ul.breadcrumbs
+                +breadcrumbsItem('Профессии', 'index.html')
+                +breadcrumbsItem('Интернет-маркетолог')
+            include ../modules/blocks/overview
+            section.content
+                //- Навигация по телу описания
+                .content__nav
+                    b.content__nav-title Навигация:
+                    ul.content__nav-list
+                        li.content__nav-item
+                            a(href="#about" target="_self").content__nav-link Описание профессии
+                        li.content__nav-item
+                            a(href="#salary" target="_self").content__nav-link Зарплатные ожидания
+                        li.content__nav-item
+                            a(href="#courses" target="_self").content__nav-link Курсы по профессии
+                        li.content__nav-item
+                            a(href="#edu" target="_self").content__nav-link Обучение с выдачей диплома
+                        li.content__nav-item
+                            a(href="#useful" target="_self").content__nav-link Полезные статьи
+                        li.content__nav-item
+                            a(href="#reviews" target="_self").content__nav-link Отзывы по профессии
+                        li.content__nav-item
+                            a(href="#faq" target="_self").content__nav-link Вопрос-ответ
+                ul.content__list
+                    li.content__item#about
+                        h3(data-item="about").content__title Описание профессии
+                        .content__body
+                            b.content__subtitle Кто такой интернет-маркетолог?
+                            p.content__description Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            button(type="button").content__expand Раскрыть
+                    li.content__item#salary
+                        h3(data-item="salary").content__title Зарплатные ожидания
+
+                    li.content__item#courses
+                        h3(data-item="courses").content__title Курсы по профессии
+                        p.content__description Dummy text of the printing and typesetting industry. Lorem Ipsum has bee.
+                        ul.content__inner
+                            
+                    li.content__item#edu
+                    li.content__item#useful
+                    li.content__item#reviews
+                    li.content__item#faq
+        include ../modules/footer/footer
+        script(src="static/js/libs.js")
+        script(src="static/js/main.js")
+        block script
